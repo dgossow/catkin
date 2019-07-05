@@ -280,7 +280,7 @@ function(catkin_find_google_test_source include_path src_path
   #In googletest 1.8, gmock and gtest where merged inside googletest
   #In this case, including gmock builds gmock twice, so instead we need to include googletest
   #which will include gtest and gmock once
-  set(_global_base_dir "${src_path}/googletest")
+  get_filename_component(_global_base_dir ${_gtest_base_dir} PATH)
   if(EXISTS "${_global_base_dir}/CMakeLists.txt")
     set(${base_dir} ${_global_base_dir} PARENT_SCOPE)
   endif()
